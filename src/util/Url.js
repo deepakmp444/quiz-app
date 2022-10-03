@@ -1,1 +1,1 @@
-export const weburl = "https://quiz-app-pi-sooty.vercel.app"
+export const weburl = "https://quiz-app.deepakmp444.vercel.app/"

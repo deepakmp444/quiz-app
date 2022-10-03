@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 export const checkDataFromLocalStorage = () => {
   try {
-    console.log("Empty");
+    // console.log("Empty");
     const UserData = {
       quizapp: "Twitter,Instagram,LinkedIn : deepakmp444",
       time: new Date().toLocaleString(),
@@ -10,7 +10,7 @@ export const checkDataFromLocalStorage = () => {
       quiz: [],
     };
     localStorage.setItem("UserData", JSON.stringify(UserData));
-    console.log("user first Time", UserData);
+    // console.log("user first Time", UserData);
     return UserData;
   } catch (error) {
     return null;

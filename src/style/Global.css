@@ -1,0 +1,9 @@
+.colorOfQuizByID {
+  background-color: rgb(238, 223, 204);
+  height: 100vh;
+}
+
+.quizById{
+    background-color: rgb(231, 222, 211);
+    height: 100vh;
+}

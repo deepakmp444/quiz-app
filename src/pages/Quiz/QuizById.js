@@ -22,8 +22,9 @@ function QuizById() {
   useEffect(() => {
     getAllQuizById(id);
     setUserName("");
+    setScore(0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [setUserName]);
+  }, [setUserName, setScore]);
 
   const getAllQuizById = async (id) => {
     const querySnapshot = await getQuiz(id);
@@ -90,49 +91,53 @@ function QuizById() {
                   <span className="badge bg-success text-center ">Home 🏠</span>
                 </h3>
               </Link>
-              <h1 className="fontAdd text-center">
+              {!lastSubmitQuestion && <h1 className="fontAdd text-center">
                 Score {score + "/" + Questions.length}
-              </h1>
-             
-              <h4 className="fontAdd" style={{ marginTop: "100px" }}>
-                {Questions[currenQuestion].q}
-              </h4>
-              <div className="d-grid gap-2 mt-2">
-                <div
-                  className="btn btn-outline-success btn-lg mt-2"
-                  onClick={() => chooseOption("optionA")}
-                >
-                  {Questions[currenQuestion].optionA}
-                </div>
-              </div>
+              </h1>}
+              
+              {!lastSubmitQuestion && (
+                <>
+                  <h4 className="fontAdd" style={{ marginTop: "100px" }}>
+                    {Questions[currenQuestion].q}
+                  </h4>
+                  <div className="d-grid gap-2 mt-2">
+                    <div
+                      className="btn btn-outline-success btn-lg mt-2"
+                      onClick={() => chooseOption("optionA")}
+                    >
+                      {Questions[currenQuestion].optionA}
+                    </div>
+                  </div>
 
-              <div className="d-grid gap-2 mt-2">
-                <div
-                  className="btn btn-outline-success btn-lg mt-2"
-                  onClick={() => chooseOption("optionB")}
-                >
-                  {Questions[currenQuestion].optionB}
-                </div>
-              </div>
+                  <div className="d-grid gap-2 mt-2">
+                    <div
+                      className="btn btn-outline-success btn-lg mt-2"
+                      onClick={() => chooseOption("optionB")}
+                    >
+                      {Questions[currenQuestion].optionB}
+                    </div>
+                  </div>
 
-              <div className="d-grid gap-2 mt-2">
-                <div
-                  className="btn btn-outline-success btn-lg mt-2"
-                  onClick={() => chooseOption("optionC")}
-                >
-                  {Questions[currenQuestion].optionC}
-                </div>
-              </div>
-              <div className="d-grid gap-2 mt-2">
-                <div
-                  className="btn btn-outline-success btn-lg"
-                  onClick={() => chooseOption("optionD")}
-                >
-                  {Questions[currenQuestion].optionD}
-                </div>
-              </div>
+                  <div className="d-grid gap-2 mt-2">
+                    <div
+                      className="btn btn-outline-success btn-lg mt-2"
+                      onClick={() => chooseOption("optionC")}
+                    >
+                      {Questions[currenQuestion].optionC}
+                    </div>
+                  </div>
+                  <div className="d-grid gap-2 mt-2">
+                    <div
+                      className="btn btn-outline-success btn-lg"
+                      onClick={() => chooseOption("optionD")}
+                    >
+                      {Questions[currenQuestion].optionD}
+                    </div>
+                  </div>
+                </>
+              )}
               {lastSubmitQuestion && (
-                <div className="d-grid gap-2 mt-4">
+                <div className="d-grid gap-2" style={{marginTop:"150px"}}>
                   <Button
                     variant="primary"
                     type="submit"
@@ -169,7 +174,9 @@ function QuizById() {
               </div>
             </Form>
           )}
-          <p className="fontAdd text-center mt-5">This is by <u>{getNameOfCreatedQuiz}</u></p>
+          <p className="fontAdd text-center mt-5">
+            This is by <u>{getNameOfCreatedQuiz}</u>
+          </p>
         </Col>
         <Col sm={4}></Col>
       </Row>

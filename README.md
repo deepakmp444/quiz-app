@@ -15,7 +15,7 @@ This is Quiz App, where you can create quiz,share quiz, play quiz.
 
 ## Demo
 
-https://quiz-app.deepakmp444.vercel.app/
+https://quizapp.deepakkumar.work
 
 
 ## 🚀 About Me

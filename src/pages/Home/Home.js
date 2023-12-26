@@ -56,8 +56,7 @@ function Home() {
         />
       </div>
       <Row>
-        <Col sm={4}></Col>
-        <Col sm={4}>
+        <Col sm={4} className="offset-sm-4">
           <div className="d-grid gap-2">
             <InputGroup className="mb-3">
               <Form.Control
@@ -105,7 +104,7 @@ function Home() {
 
             <Link
               to="create-quiz"
-              className="btn btn-outline-success btn-lg"
+              className="btn btn-outline-success btn-md"
               type="button"
             >
               Create Your Quiz
@@ -115,7 +114,6 @@ function Home() {
             <ManageQuiz value={userRandomId.quiz} deleteHandle={deleteHandle} />
           )}
         </Col>
-        <Col sm={4}></Col>
       </Row>
     </Container>
   );

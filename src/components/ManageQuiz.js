@@ -21,6 +21,11 @@ function ManageQuiz({ value, deleteHandle }) {
     });
   };
 
+  const handleDelete = async(v) => {
+    await deleteHandle(v)
+    setModalShow(false)
+  }
+
   return (
     <div>
       {value?.map((v) => {
@@ -93,7 +98,7 @@ function ManageQuiz({ value, deleteHandle }) {
               </div>
             </div>
             <ModelComponent show={modalShow}
-              onHide={() => setModalShow(false)} delete={() => deleteHandle(v.id)} />
+              onHide={() => setModalShow(false)} delete={() => handleDelete(v.id)} />
           </Alert>
         );
       })}
